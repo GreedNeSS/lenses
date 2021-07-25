@@ -14,9 +14,8 @@ class Lens {
 		if (this.source === this.destination) {
 			return { ...obj, [this.destination]: val }
 		} else {
-			const res = { ...obj, [this.destination]: val };
-			const { [this.source]: forgot, ...other } = res;
-			return other;
+			const { [this.source]: forgot, ...other } = obj;
+			return { ...other, [this.destination]: val };
 		}
 	}
 
